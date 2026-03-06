@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<!--Default HTML for metadata and styles reference-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Dex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>League Dex</h1>
+
+    <!--Creates a grid from champions list sent from main.py and displays the champ's info-->
+    <!--Uses Jinja ('{%') to allow Flask to insert html code dynamically for each champion repeatly -->
+    <div class="champion-grid">
+        {% for champ in champions %}
+        <div class="champion-card">
+            <img src="{{ champ.icon }}">
+            <h2>{{ champ.name }}</h2>
+            <p>{{ champ.title }}</p>
+            <p>
+                {% for tag in champ.tags %}
+                    {{ tag }}
+                {% endfor %}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
