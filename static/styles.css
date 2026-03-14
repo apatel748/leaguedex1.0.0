@@ -8,6 +8,7 @@ h1 {
   text-align: left;
   font-size: 30px;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 /* Creates a 4 column grid for each champion */
@@ -19,6 +20,7 @@ h1 {
   margin: auto;
 }
 
+/* Related to each champion card - text, image, and on hover styles*/
 .champion-card {
   background-color: #163358;
   border-radius: 12px;
@@ -36,10 +38,49 @@ h1 {
 .champion-card h2 {
   margin: 4px;
   font-size: 16px;
+
 }
 
 .champion-card p {
   margin: 4px;
   font-size: 12px;
   color: #b8bcc6;
+}
+
+.champion-link {
+  text-decoration: none;
+  color: #e4e6eb;
+}
+
+.champion-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Champion-page images styles */
+.ability img {
+  width: 48px;
+}
+
+.splash {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.back-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 14px;
+  background-color: #163358;
+  border: 1px solid #2a4870;
+  border-radius: 6px;
+  color: #e4e6eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background-color: #1c4170;
+  cursor: pointer;
 }
