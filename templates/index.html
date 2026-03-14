@@ -12,9 +12,11 @@
     <h1>League Dex</h1>
 
     <!--Creates a grid from champions list sent from main.py and displays the champ's info-->
-    <!--Uses Jinja ('{%') to allow Flask to insert html code dynamically for each champion repeatly -->
+    <!--Uses Jinja to allow Flask to insert html code dynamically for each champion repeatly -->
     <div class="champion-grid">
         {% for champ in champions %}
+        <!--Wraps each champion card with a redirect to champion-specific data page-->
+        <a href="/champion-page/{{ champ.id }}" class="champion-link">
         <div class="champion-card">
             <img src="{{ champ.icon }}">
             <h2>{{ champ.name }}</h2>
@@ -25,6 +27,7 @@
                 {% endfor %}
             </p>
         </div>
+        </a>
         {% endfor %}
     </div>
 

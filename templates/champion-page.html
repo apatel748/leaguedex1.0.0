@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--Default HTML for metadata and styles reference-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    
+    <a href="/">Back</a>
+    <!-- Container for the champion detail content -->
+    <div class="champion-page">
+
+        <!--For each champion, it requests and displays the data pulled-->
+        <h1>{{ champion.name }}</h1>
+        <h3>{{ champion.title }}</h3>
+        <p>{{ champion.lore }}</p>
+
+        <h2>Passive</h2>
+        <div class="ability">
+            <!--Static API Endpoint for passive ability image-->
+            <img src="https://ddragon.leagueoflegends.com/cdn/16.5.1/img/passive/{{ champion.passive.image.full }}">
+            <h3>{{ champion.passive.name }}</h3>
+            <p>{{ champion.passive.description }}</p>
+        </div>
+
+        <h2>Abilities</h2>
+
+        <div class="abilities">
+            <!-- Jinja that loops for each spell/ability-->
+            {% for spell in champion.spells %}
+            <div class="ability">
+                <img src="https://ddragon.leagueoflegends.com/cdn/16.5.1/img/spell/{{ spell.image.full }}">
+                <h3>{{ spell.name }}</h3>
+                <p>{{ spell.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <img class="splash" src="{{ champion.splash }}">
+
+    </div>
+
+</body>
+</html>
